@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contenidos SIMCE Matemáticas 4° Básico</title>
+    <title>Contenidos y Quiz SIMCE Matemáticas 4° Básico</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,18 +41,59 @@
         ul li strong {
             color: #2980b9;
         }
-        .example-box {
+        .example-box, .quiz-question {
             background-color: #ecf0f1;
             border-left: 4px solid #7f8c8d;
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 4px;
         }
-        .example-box p {
+        .example-box p, .quiz-question p {
             margin: 5px 0;
         }
         .example-box strong {
             color: #e74c3c;
+        }
+        .quiz-question strong {
+            color: #28a745; /* Color para la pregunta del quiz */
+        }
+        .quiz-options ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .quiz-options li {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .quiz-options li:hover {
+            background-color: #f0f0f0;
+        }
+        .quiz-options li.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+        }
+        .quiz-options li.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+        }
+        .quiz-rationale {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+            padding-left: 10px;
+            border-left: 2px solid #ccc;
+        }
+        .quiz-hint {
+            font-size: 0.9em;
+            color: #777;
+            font-style: italic;
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 2px dashed #999;
         }
         hr {
             border: 0;
@@ -131,31 +172,192 @@
 
         <h3>Suma</h3>
         <div class="example-box">
-            <p><strong>Problema:</strong> Sofía tenía $3.456$ estampillas. Su abuelo le regaló $1.289$ más. ¿Cuántas estampillas tiene Sofía en total ahora?</p>
-            <p><strong>Operación:</strong> $3456 + 1289 = 4745$</p>
+            <p><strong>Problema:</strong> Sofía tenía 3.456 estampillas. Su abuelo le regaló 1.289 más. ¿Cuántas estampillas tiene Sofía en total ahora?</p>
+            <p><strong>Operación:</strong> 3456 + 1289 = 4745</p>
             <p><strong>Respuesta:</strong> Sofía tiene 4.745 estampillas.</p>
         </div>
 
         <h3>Resta</h3>
         <div class="example-box">
             <p><strong>Problema:</strong> En un curso hay 42 estudiantes. Si 17 de ellos son niñas, ¿cuántos niños hay en el curso?</p>
-            <p><strong>Operación:</strong> $42 - 17 = 25$</p>
+            <p><strong>Operación:</strong> 42 - 17 = 25</p>
             <p><strong>Respuesta:</strong> Hay 25 niños en el curso.</p>
         </div>
 
         <h3>Multiplicación</h3>
         <div class="example-box">
             <p><strong>Problema:</strong> Un álbum de láminas tiene 6 páginas y cada página puede guardar 24 láminas. ¿Cuántas láminas se pueden guardar en total en el álbum?</p>
-            <p><strong>Operación:</strong> $24 \times 6 = 144$</p>
+            <p><strong>Operación:</strong> 24 x 6 = 144</p>
             <p><strong>Respuesta:</strong> Se pueden guardar 144 láminas en total.</p>
         </div>
 
         <h3>División</h3>
         <div class="example-box">
             <p><strong>Problema:</strong> Tengo 36 dulces y quiero repartirlos en partes iguales entre mis 4 amigos. ¿Cuántos dulces le tocará a cada uno?</p>
-            <p><strong>Operación:</strong> $36 \div 4 = 9$</p>
+            <p><strong>Operación:</strong> 36 / 4 = 9</p>
             <p><strong>Respuesta:</strong> A cada amigo le tocarán 9 dulces.</p>
         </div>
+
+        ---
+
+        <h2>¡Tu Último Quiz de Números Naturales!</h2>
+        <p>Aquí tienes un resumen del quiz que acabas de realizar sobre **Números Naturales: Leer, Escribir y Ordenar**. Puedes ver las preguntas, tus respuestas y las respuestas correctas junto con las explicaciones.</p>
+
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <p><strong>1. ¿Cuál es la forma escrita correcta del número 7.805?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>Siete mil ochocientos cincuenta</li>
+                        <li class="correct">Siete mil ochocientos cinco</li>
+                        <li>Setecientos ochenta y cinco</li>
+                        <li>Siete mil ochenta y cinco</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> Siete mil ochocientos cinco. Esta es la forma escrita correcta del número 7.805.</p>
+                <p class="quiz-hint">Tu respuesta: Siete mil ochocientos cinco</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>2. ¿Cuál de los siguientes números es el mayor?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>4.999</li>
+                        <li>5.000</li>
+                        <li class="correct">5.001</li>
+                        <li>4.099</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> 5.001. Al comparar las unidades de mil y luego las centenas, decenas y unidades, 5.001 es el mayor.</p>
+                <p class="quiz-hint">Tu respuesta: 5.001</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>3. Ordena los siguientes números de menor a mayor: 8.750, 8.570, 8.075, 8.705.</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>8.750, 8.705, 8.570, 8.075</li>
+                        <li class="correct">8.075, 8.570, 8.705, 8.750</li>
+                        <li>8.075, 8.705, 8.570, 8.750</li>
+                        <li>8.570, 8.075, 8.705, 8.750</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> 8.075, 8.570, 8.705, 8.750. Este es el orden correcto de menor a mayor.</p>
+                <p class="quiz-hint">Tu respuesta: 8.075, 8.570, 8.705, 8.750</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>4. ¿Qué número se forma con 'tres mil doscientos diecinueve'?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>3.290</li>
+                        <li>3.019</li>
+                        <li class="correct">3.219</li>
+                        <li>3.129</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> 3.219. Esta es la forma numérica correcta de 'tres mil doscientos diecinueve'.</p>
+                <p class="quiz-hint">Tu respuesta: 3.219</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>5. ¿Cuál es el valor posicional del dígito 6 en el número 9.624?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>Unidades</li>
+                        <li>Decenas</li>
+                        <li class="correct">Centenas</li>
+                        <li>Unidades de mil</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> Centenas. El 6 está en la posición de las centenas, lo que significa que su valor es 600.</p>
+                <p class="quiz-hint">Tu respuesta: Centenas</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>6. Si tienes los dígitos 2, 8, 0, 5, ¿cuál es el número más pequeño que puedes formar usando todos los dígitos una sola vez?</strong></p>
+                <div class="quiz-options">
+                    <li class="correct">2.058</li>
+                    <li>5.028</li>
+                    <li>8.520</li>
+                    <li>0.258</li>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> 2.058. Para formar el número más pequeño, el 0 se debe colocar después del primer dígito significativo. Un número no puede empezar con 0 si tiene más dígitos.</p>
+                <p class="quiz-hint">Tu respuesta: 0.258</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>7. ¿Cuál de las siguientes afirmaciones es correcta sobre el número 1.000?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>Es el número que viene antes de 999.</li>
+                        <li>Se lee como 'cien'.</li>
+                        <li class="correct">Tiene 4 dígitos.</li>
+                        <li>Es menor que 990.</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> Tiene 4 dígitos. El número 1.000 tiene 4 dígitos: 1, 0, 0, 0.</p>
+                <p class="quiz-hint">Tu respuesta: Es el número que viene antes de 999.</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>8. Si colocas los números 1.234, 1.324, 1.243 en orden de mayor a menor, ¿cuál sería el orden correcto?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>1.234, 1.324, 1.243</li>
+                        <li class="correct">1.324, 1.243, 1.234</li>
+                        <li>1.243, 1.324, 1.234</li>
+                        <li>1.234, 1.243, 1.324</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> 1.324, 1.243, 1.234. Este es el orden correcto de mayor a menor.</p>
+                <p class="quiz-hint">Tu respuesta: 1.243, 1.324, 1.234</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>9. ¿Qué número sigue en la secuencia: 1.500, 1.550, 1.600, ...?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>1.605</li>
+                        <li class="correct">1.650</li>
+                        <li>1.700</li>
+                        <li>1.505</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> 1.650. La secuencia aumenta de 50 en 50. Sumando 50 a 1.600 se obtiene 1.650.</p>
+                <p class="quiz-hint">Tu respuesta: 1.650</p>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>10. ¿Cuál es el número que representa 'cuatro mil novecientos noventa y ocho'?</strong></p>
+                <div class="quiz-options">
+                    <ul>
+                        <li>4.980</li>
+                        <li class="correct">4.998</li>
+                        <li>4.098</li>
+                        <li>4.908</li>
+                    </ul>
+                </div>
+                <p class="quiz-rationale"><strong>Respuesta Correcta:</strong> 4.998. Esta es la representación numérica correcta de 'cuatro mil novecientos noventa y ocho'.</p>
+                <p class="quiz-hint">Tu respuesta: 4.098</p>
+            </div>
+
+        </div>
     </div>
+
+    <script>
+        // Este script es para que las opciones del quiz se marquen correctamente.
+        // En una página web real, necesitarías JavaScript más complejo para la interactividad
+        // y para marcar dinámicamente si la respuesta del usuario es correcta o incorrecta.
+        // Aquí solo se usa para fines de visualización estática de las clases 'correct' e 'incorrect'.
+
+        document.querySelectorAll('.quiz-options ul').forEach(function(ul) {
+            ul.querySelectorAll('li').forEach(function(li) {
+                // Si la li ya tiene una clase 'correct' o 'incorrect' del HTML (como en el ejemplo)
+                // no se hace nada más. Esto es solo para el ejemplo estático.
+                // En un quiz interactivo, esta lógica sería diferente.
+            });
+        });
+    </script>
 </body>
-</html>
+    </html>
