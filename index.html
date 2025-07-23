@@ -261,4 +261,131 @@
                         <li data-value="1.605">1.605</li>
                         <li data-value="1.650">1.650</li>
                         <li data-value="1.700">1.700</li>
-                        <li data-value
+                        <li data-value="1.505">1.505</li>
+                    </ul>
+                </div>
+                <button class="check-button" onclick="checkAnswer(this)">Verificar</button>
+                <div class="quiz-feedback"></div>
+                <p class="quiz-hint">Observa la diferencia entre los números consecutivos para encontrar el patrón de la secuencia.</p>
+            </div>
+
+            <div class="quiz-question" data-correct-answer="4.998">
+                <p class="question-text">10. ¿Cuál es el número que representa 'cuatro mil novecientos noventa y ocho'?</p>
+                <div class="quiz-options">
+                    <ul>
+                        <li data-value="4.980">4.980</li>
+                        <li data-value="4.998">4.998</li>
+                        <li data-value="4.098">4.098</li>
+                        <li data-value="4.908">4.908</li>
+                    </ul>
+                </div>
+                <button class="check-button" onclick="checkAnswer(this)">Verificar</button>
+                <div class="quiz-feedback"></div>
+                <p class="quiz-hint">Identifica los valores de cada posición: unidades de mil, centenas, decenas y unidades.</p>
+            </div>
+
+        </div> </div> <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Selecciona todas las listas de opciones
+            const allOptionLists = document.querySelectorAll('.quiz-options ul');
+
+            allOptionLists.forEach(ul => {
+                const options = ul.querySelectorAll('li');
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        // Deseleccionar todas las opciones en esta pregunta
+                        options.forEach(o => o.classList.remove('selected'));
+                        // Seleccionar la opción clicada
+                        this.classList.add('selected');
+                    });
+                });
+            });
+        });
+
+        function checkAnswer(button) {
+            const questionDiv = button.closest('.quiz-question');
+            const selectedOption = questionDiv.querySelector('.quiz-options li.selected');
+            const feedbackDiv = questionDiv.querySelector('.quiz-feedback');
+            const correctAnswerText = questionDiv.dataset.correctAnswer;
+            const allOptions = questionDiv.querySelectorAll('.quiz-options li');
+
+            // Limpiar clases de intento anterior
+            allOptions.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+            feedbackDiv.classList.remove('correct', 'incorrect');
+            feedbackDiv.style.display = 'none'; // Ocultar feedback anterior
+
+            if (!selectedOption) {
+                feedbackDiv.textContent = 'Por favor, selecciona una opción.';
+                feedbackDiv.className = 'quiz-feedback incorrect'; // Usamos incorrect para llamar la atención
+                feedbackDiv.style.display = 'block';
+                return;
+            }
+
+            const userAnswerText = selectedOption.dataset.value;
+
+            if (userAnswerText === correctAnswerText) {
+                selectedOption.classList.add('correct');
+                feedbackDiv.textContent = '¡Correcto! ' + getRationale(questionDiv, 'correct');
+                feedbackDiv.className = 'quiz-feedback correct';
+            } else {
+                selectedOption.classList.add('incorrect');
+                // Marcar la respuesta correcta también
+                allOptions.forEach(option => {
+                    if (option.dataset.value === correctAnswerText) {
+                        option.classList.add('correct');
+                    }
+                });
+                feedbackDiv.textContent = 'Incorrecto. ' + getRationale(questionDiv, 'incorrect', userAnswerText);
+                feedbackDiv.className = 'quiz-feedback incorrect';
+            }
+            feedbackDiv.style.display = 'block'; // Mostrar feedback
+        }
+
+        // Función para obtener la justificación (rationale) basada en la pregunta
+        // En un escenario real, estas justificaciones estarían en un objeto de datos del quiz.
+        // Aquí las codificamos directamente para simplicidad.
+        function getRationale(questionDiv, type, userAnswer = null) {
+            const questionText = questionDiv.querySelector('.question-text').textContent;
+            let rationale = '';
+
+            switch(questionText) {
+                case "1. ¿Cuál es la forma escrita correcta del número 7.805?":
+                    rationale = "La forma escrita correcta de 7.805 es 'Siete mil ochocientos cinco'.";
+                    break;
+                case "2. ¿Cuál de los siguientes números es el mayor?":
+                    rationale = "Al comparar las unidades de mil y luego las centenas, decenas y unidades, 5.001 es el mayor.";
+                    break;
+                case "3. Ordena los siguientes números de menor a mayor: 8.750, 8.570, 8.075, 8.705.":
+                    rationale = "El orden correcto de menor a mayor es 8.075, 8.570, 8.705, 8.750.";
+                    break;
+                case "4. ¿Qué número se forma con 'tres mil doscientos diecinueve'?":
+                    rationale = "La forma numérica correcta de 'tres mil doscientos diecinueve' es 3.219.";
+                    break;
+                case "5. ¿Cuál es el valor posicional del dígito 6 en el número 9.624?":
+                    rationale = "El 6 está en la posición de las centenas, lo que significa que su valor es 600.";
+                    break;
+                case "6. Si tienes los dígitos 2, 8, 0, 5, ¿cuál es el número más pequeño que puedes formar usando todos los dígitos una sola vez?":
+                    rationale = "El número más pequeño que se puede formar es 2.058. Un número de cuatro cifras no puede empezar con cero.";
+                    break;
+                case "7. ¿Cuál de las siguientes afirmaciones es correcta sobre el número 1.000?":
+                    rationale = "El número 1.000 tiene 4 dígitos (1, 0, 0, 0).";
+                    break;
+                case "8. Si colocas los números 1.234, 1.324, 1.243 en orden de mayor a menor, ¿cuál sería el orden correcto?":
+                    rationale = "El orden correcto de mayor a menor es 1.324, 1.243, 1.234.";
+                    break;
+                case "9. ¿Qué número sigue en la secuencia: 1.500, 1.550, 1.600, ...?":
+                    rationale = "La secuencia aumenta de 50 en 50, por lo tanto, el siguiente número es 1.650.";
+                    break;
+                case "10. ¿Cuál es el número que representa 'cuatro mil novecientos noventa y ocho'?":
+                    rationale = "La representación numérica correcta es 4.998.";
+                    break;
+                default:
+                    rationale = "Explicación no disponible.";
+            }
+            return rationale;
+        }
+    </script>
+</body>
+</html>
